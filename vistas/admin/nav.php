@@ -3,6 +3,9 @@
             <ul id="nav">
                 <li><a href="index.php">Inicio</a></li>
                 <li><a class="hsubs" href="empleados.php">Empleados</a>
+                   <ul class="subs">
+                       <li><a href="agregarEmpleado.php">Agregar E</a></li>
+                   </ul> 
                 </li>
                 <li><a class="hsubs" href="reporteTotalDep.php">Reportes</a>
                 </li>

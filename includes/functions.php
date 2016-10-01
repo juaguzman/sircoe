@@ -30,7 +30,7 @@ function sec_session_start()
 function login($email, $password, $mysqli) 
  {
     // Usar declaraciones preparadas significa que la inyección de SQL no será posible.
-    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
+    if ($stmt = $mysqli->prepare("SELECT id,rol, username, password, salt 
         FROM members
        WHERE email = ?
         LIMIT 1")) {
@@ -39,7 +39,7 @@ function login($email, $password, $mysqli)
         $stmt->store_result();
  
         // Obtiene las variables del resultado.
-        $stmt->bind_result($user_id, $username, $db_password, $salt);
+        $stmt->bind_result($user_id,$rol, $username, $db_password, $salt);
         $stmt->fetch();
  
         // Hace el hash de la contraseña con una sal única.
@@ -70,6 +70,7 @@ function login($email, $password, $mysqli)
                     $_SESSION['login_string'] = hash('sha512', 
                               $password . $user_browser);
                     $_SESSION['user_id']=$user_id;
+                    $_SESSION['rol']=$rol;
                     // Inicio de sesión exitoso
                     return true;
                 } else {

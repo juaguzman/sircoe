@@ -10,7 +10,7 @@ if (isset($_POST['email'], $_POST['p'])) {
  
     if (login($email, $password, $mysqli) == true) {
         // Inicio de sesión exitosa
-        header('Location: ../admin/protected_page.php');
+        header('Location: ../vistas/admin/index.php');
     } else {
         // Inicio de sesión exitosa
         header('Location: ../index.php?error=1');
