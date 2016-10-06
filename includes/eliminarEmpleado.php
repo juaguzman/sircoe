@@ -20,7 +20,7 @@ if(isset($_REQUEST['cedu']))
        if($stmt->execute())
        {
           $msj=$cedu;
-          header('Location: ../vistas/admin/empleados.php?msj='.$msj); 
+          header('Location: ../vistas/admin/empleados.php?msj='.$msj.'&opt=1'); 
        }
        
         }

@@ -2,15 +2,15 @@
 //include './includes/psl-config.php';
 include '../../includes/db_connect.php';
 include_once '../../includes/functions.php';
- 
+include '../../includes/acciones.php';
+include '../../includes/agregarE.inc.php';
 sec_session_start();
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Modificar Empleados</title>
-        <link rel="stylesheet" href="styles/main.css" />
+        <title>Agregar Empleados</title>
         <link href="../../css/layout.css" rel="stylesheet" type="text/css" />
         <link href="../../css/menu.css" rel="stylesheet" type="text/css" />
         <link href="../../css/header.css" rel="stylesheet" type="text/css" />
@@ -18,25 +18,57 @@ sec_session_start();
     <body>
         <header>
             <h2><img id="titu" src="../../imagenes/titulo.png"></h2>
-            <a href="www.umariana.edu.co" class="stuts">Sistema de Registro y Control de Emplados<span>UNIMAR</span></a>
+            <a href="http://www.umariana.edu.co" class="stuts">Sistema de Registro y Control de Emplados<span>UNIMAR</span></a>
             <h2><a href="http://www.umariana.edu.co "><img id="escudo" src="../../imagenes/escudo2.png"></a></h2>
         </header>
         <?php if (login_check($mysqli) == true && $_SESSION['rol']=='admin') : 
         
-            include 'nav.php';
+            include './nav.php';
         
         ?>
+        <br>
+        
         <div class="container">
-            <p>¡Bienvenido, <?php echo htmlentities($_SESSION['username']); ?>!</p>
-            <p>
-                Este es un ejemplo de página protegida.  Para acceder a esta página, los usuarios
-                deberán iniciar su sesión.  En algún momento, también verificaremos el rol 
-                del usuario para que las páginas puedan determinar el tipo de usuario 
-                autorizado para acceder a la página.
-            </p>
+            <div class="agreET">
+                 <h1 id="re">Regístro de empleados</h1>
+        <?php
+        if (!empty($error_msg)) 
+       {
+            echo $error_msg;
+        }
+        ?>
+            </div>
+            <div class="contenido">
+                <br>
+                <br>
+        <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
+            <h3 id="texto">Apellidos: <input type='text' name='apell' id='apellidos' value="<?php if (!empty($apell)) { echo $apell;} ?>" required /></h3><br>
+            <br>
+            <h3 id="texto">Nombres: <input type='text' name='nom' id='nombres' value="<?php if (!empty($nom)) { echo $nom;} ?>" required /></h3><br>
+            <br>
+            <?php if(!empty($error_ced)) { echo $error_ced;} ?>
+            <h3 id="texto">Cedula: <input type="number" name="ced" id="cedula" value="<?php if (!empty($cedu)) { echo $cedu;} ?>" required /></h3>
+                <br>
+                <br>
+                <?php if(!empty($error_codi)) { echo $error_codi;} ?>
+                <h3 id="texto">Codigo: <input type="number" name="cod" id="codigo" value="<?php if (!empty($codi)) { echo $codi;} ?>" required/> </h3>
+                <br>
+            <br>
+            <?php if(!empty($error_dep)) { echo $error_dep;} ?>
+            <h3 id="texto"> 
+                Dependecia: 
+                <SELECT NAME="dep" SIZE="1"> 
+                   <OPTION VALUE="0">Escoja una Dependencia</OPTION>
+                   <?php acciones::selectDependencia()?>
+  
+                </SELECT>
+            </h3> <br> <br>
             
-            <p>Regresar a la<a href="index.php">página de inicio de sesión.</a></p>
-        </div>
+            <input type="submit" value="Agregar Empleado" class="btn" /> 
+        </form>
+            </div>
+            </div>
+        
         <?php else : ?>
             <p>
                 <span class="error"> No está autorizado para acceder a esta página. </span> Por favor ingrese como administrador <a href="index.php">login</a>.
