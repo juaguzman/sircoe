@@ -29,26 +29,33 @@ sec_session_start();
         ?>
         <!-- Formulario de registro que se emitirá si las variables POST no se
           establecen o si la secuencia de comandos de registro ha provocado un error. -->
-        <h1>Regístrate con nosotros</h1>
+        <div class="container">
+            <div id="condiciones">
+                <ul>
+                    <li> Los nombres de usuario podrían contener solo dígitos, letras mayúsculas, minúsculas y guiones bajos.</li>
+                    <li> Los correos electrónicos deberán tener un formato válido. </li>
+                    <li> Las contraseñas deberán tener al menos 6 caracteres.</li>
+                    <li>Las contraseñas deberán estar compuestas por:
+                <ul>
+                    <li> Por lo menos una letra mayúscula (A-Z)</li>
+                    <li> Por lo menos una letra minúscula (a-z)</li>
+                    <li> Por lo menos un número (0-9)</li>
+                </ul>
+                    </li>
+                    <li> La contraseña y la confirmación deberán coincidir exactamente.</li>
+                </ul>
+            </div>
+            <br>
+            <div class="agreER">
+                <h1 id="re">Regístrate con nosotros</h1>
+            </div>
         <?php
         if (!empty($error_msg)) 
        {
             echo $error_msg;
         }
         ?>
-        <ul>
-            <li> Los nombres de usuario podrían contener solo dígitos, letras mayúsculas, minúsculas y guiones bajos.</li>
-            <li> Los correos electrónicos deberán tener un formato válido. </li>
-            <li> Las contraseñas deberán tener al menos 6 caracteres.</li>
-            <li>Las contraseñas deberán estar compuestas por:
-                <ul>
-                    <li> Por lo menos una letra mayúscula (A-Z)</li>
-                    <li> Por lo menos una letra minúscula (a-z)</li>
-                    <li> Por lo menos un número (0-9)</li>
-                </ul>
-            </li>
-            <li> La contraseña y la confirmación deberán coincidir exactamente.</li>
-        </ul>
+        
         <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
             Nombre de usuario: <input type='text' name='username' id='username' /><br>
             Correo electrónico: <input type="text" name="email" id="email" /><br>
@@ -61,6 +68,7 @@ sec_session_start();
             <input type="button" value="Register" onclick="return regformhash(this.form,this.form.username,this.form.email,this.form.password,this.form.confirmpwd);" /> 
         </form>
         <p>Return to the <a href="index.php">login page</a>.</p>
+        </div>
   <?php else : ?>
             <p>
                 <span class="error"> No está autorizado para acceder a esta página. </span> Por favor ingrese como administrador <a href="index.php">login</a>.
