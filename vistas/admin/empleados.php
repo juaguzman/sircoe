@@ -44,6 +44,10 @@ sec_session_start();
             include 'nav.php';
             $id = $_SESSION['user_id'];
         ?>
+        <?php if(isset($_REQUEST['msj'])){
+        $msj = $_REQUEST['msj'];
+        echo "<div id=dialog-message title= Empleado Eliminado > <p> Empleado con cedula numero $msj se elimino correctamente </p></div>";
+        }?>
         <div class="container">
             <!--<h1>Pagina de empleados listado de todos los emplados por dependencia osea los que puede ver el administrador o director de esa dependencia como por ejemplo servicios generales</h1>-->
             <h1>Listado de empleados de su dependencia</h1>

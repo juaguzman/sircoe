@@ -37,7 +37,7 @@ class acciones
                     {
                        $estado = "Activo";
                     }
-            echo "<tr><td>$campo->cedula</td><td>$campo->codigo</td><td>$campo->nombres</td><td>$campo->apellidos</td><td>$campo->dependencia</td><td>$estado</td><td><a href=modificarEmpleado.php?cedu=$campo->cedula><img src=../../imagenes/mod.png width=30px heigt=30px ></a></td><td><a href=eliminarEmpleado.php?cedu=$campo->cedula><img src=../../imagenes/eliminar.png width=30px heigt=30px ></a></td></tr>";
+            echo "<tr><td>$campo->cedula</td><td>$campo->codigo</td><td>$campo->nombres</td><td>$campo->apellidos</td><td>$campo->dependencia</td><td>$estado</td><td><a href=modificarEmpleado.php?cedu=$campo->cedula><img src=../../imagenes/mod.png width=30px heigt=30px ></a></td><td><a href=../../includes/eliminarEmpleado.php?cedu=$campo->cedula><img src=../../imagenes/eliminar.png width=30px heigt=30px ></a></td></tr>";
         }
         echo '<table>';
     }
