@@ -17,6 +17,11 @@ sec_session_start();
         <link href="../../css/tabla.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
+        <header>
+            <h2><img id="titu" src="../../imagenes/titulo.png"></h2>
+            <a href="http://www.umariana.edu.co" class="stuts">Sistema de Registro y Control de Emplados<span>UNIMAR</span></a>
+            <h2><a href="http://www.umariana.edu.co "><img id="escudo" src="../../imagenes/escudo2.png"></a></h2>
+        </header>
         <?php if (login_check($mysqli) == true && $_SESSION['rol']=='admin') : 
             
             include 'nav.php';
