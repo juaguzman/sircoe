@@ -44,9 +44,7 @@ sec_session_start();
             </li>
             <li> La contraseña y la confirmación deberán coincidir exactamente.</li>
         </ul>
-        <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" 
-                method="post" 
-                name="registration_form">
+        <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
             Nombre de usuario: <input type='text' name='username' id='username' /><br>
             Correo electrónico: <input type="text" name="email" id="email" /><br>
             Contraseña: <input type="password" name="password" id="password"/><br>

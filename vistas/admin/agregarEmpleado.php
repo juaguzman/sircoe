@@ -10,7 +10,6 @@ sec_session_start();
     <head>
         <meta charset="UTF-8">
         <title>Agregar Empleados</title>
-        <link rel="stylesheet" href="styles/main.css" />
         <link href="../../css/layout.css" rel="stylesheet" type="text/css" />
         <link href="../../css/menu.css" rel="stylesheet" type="text/css" />
         <link href="../../css/header.css" rel="stylesheet" type="text/css" />
@@ -18,24 +17,49 @@ sec_session_start();
     <body>
         <header>
             <h2><img id="titu" src="../../imagenes/titulo.png"></h2>
-            <a href="www.umariana.edu.co" class="stuts">Sistema de Registro y Control de Emplados<span>UNIMAR</span></a>
+            <a href="http://www.umariana.edu.co" class="stuts">Sistema de Registro y Control de Emplados<span>UNIMAR</span></a>
         </header>
         <?php if (login_check($mysqli) == true && $_SESSION['rol']=='admin') : 
         
-            include 'nav.php';
+            include './nav.php';
         
         ?>
+        <br>
+        
         <div class="container">
-            <p>¡Bienvenido, <?php echo htmlentities($_SESSION['username']); ?>!</p>
-            <p>
-                Este es un ejemplo de página protegida.  Para acceder a esta página, los usuarios
-                deberán iniciar su sesión.  En algún momento, también verificaremos el rol 
-                del usuario para que las páginas puedan determinar el tipo de usuario 
-                autorizado para acceder a la página.
-            </p>
+            <div class="agreET">
+                 <h1 id="re">Regístro de empleados</h1>
+        <?php
+        if (!empty($error_msg)) 
+       {
+            echo $error_msg;
+        }
+        ?>
+            </div>
+            <div class="contenido">
+                <br>
+                <br>
+        <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
+            <h3 id="texto">Apellidos: <input type='text' name='username' id='apellidos' /></h3><br>
+            <br>
+            <h3 id="texto">Nombres: <input type='text' name='username' id='nombres' /></h3><br>
+            <br>
+            <h3 id="texto">Cedula: <input type="number" name="ced" id="cedula" /></h3>
+                <br>
+                <br>
+            <h3 id="texto">Codigo: <input type="number" name="cod" id="codigo"/></h3>
+                <br>
+            <br>
+            <h3 id="texto"> Dependecia: <SELECT NAME="dep" SIZE="1"> 
+                            <OPTION VALUE="1">1. Servicios G.</OPTION> 
+                            <OPTION VALUE="2">2. Laboratoristas</OPTION> 
+                </SELECT></h3> <br> <br>
             
-            <p>Regresar a la<a href="index.php">página de inicio de sesión.</a></p>
-        </div>
+                    <input type="button" value="Agregar Empleado" onclick=" " /> 
+        </form>
+            </div>
+            </div>
+        
         <?php else : ?>
             <p>
                 <span class="error"> No está autorizado para acceder a esta página. </span> Por favor ingrese como administrador <a href="index.php">login</a>.

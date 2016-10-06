@@ -47,3 +47,40 @@ header .stuts span {
     width: 957px;
     color: #ffffff;
 }
+
+.agreET
+{
+   border-radius: 20px 20px 0px 0px;
+   -moz-border-radius: 20px 20px 0px 0px;
+    -webkit-border-radius: 20px 20px 0px 0px;
+    border: 0px;
+    color: white;
+    background: #eb741a;
+    width: 50%;
+    margin-left: 250px;
+    height: 70px;
+}
+#re
+{
+    font: 200% sans-serif;
+     font-family: fantasy;
+     text-align: center;
+     margin-top: 15px;
+}
+
+.contenido
+{
+    border-radius: 0px 0px 20px 20px;
+    -moz-border-radius: 0px 0px 20px 20px;
+    -webkit-border-radius: 0px 0px 20px 20px;
+    border: 0px;
+    width: 50%;
+    margin-left: 250px;
+    height: 370px;
+    background: #e3e2df;
+    text-align: center;
+}
+#texto
+{
+    color: black;
+}
