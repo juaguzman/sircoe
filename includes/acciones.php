@@ -75,4 +75,17 @@ class acciones
         }
         echo '<table>';
     }
+    
+    static function selectDependencia()
+    {
+        include 'db_connect.php';
+         $consulta = "SELECT * FROM dependencias;";
+        $result   = $mysqli->query($consulta);
+        while ($campo=mysqli_fetch_object($result)) 
+        {
+            echo "<OPTION VALUE=$campo->id_depen> $campo->nombre</OPTION>";
+        }
+        
+        
+    }
 }

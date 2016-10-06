@@ -76,11 +76,17 @@ header .stuts span {
     border: 0px;
     width: 50%;
     margin-left: 250px;
-    height: 370px;
+    margin-top: 10px;
     background: #e3e2df;
     text-align: center;
 }
 #texto
 {
     color: black;
+}
+
+.error
+{
+    font: 5px;
+    color: red;
 }

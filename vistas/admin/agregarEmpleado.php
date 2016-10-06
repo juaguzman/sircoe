@@ -2,7 +2,8 @@
 //include './includes/psl-config.php';
 include '../../includes/db_connect.php';
 include_once '../../includes/functions.php';
- 
+include '../../includes/acciones.php';
+include '../../includes/agregarE.inc.php';
 sec_session_start();
 ?>
 <!DOCTYPE html>
@@ -40,22 +41,29 @@ sec_session_start();
                 <br>
                 <br>
         <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
-            <h3 id="texto">Apellidos: <input type='text' name='username' id='apellidos' /></h3><br>
+            <h3 id="texto">Apellidos: <input type='text' name='apell' id='apellidos' /></h3><br>
             <br>
-            <h3 id="texto">Nombres: <input type='text' name='username' id='nombres' /></h3><br>
+            <h3 id="texto">Nombres: <input type='text' name='nom' id='nombres' /></h3><br>
             <br>
+            <?php if(!empty($error_ced)) { echo $error_ced;} ?>
             <h3 id="texto">Cedula: <input type="number" name="ced" id="cedula" /></h3>
                 <br>
                 <br>
+                <?php if(!empty($error_codi)) { echo $error_codi;} ?>
             <h3 id="texto">Codigo: <input type="number" name="cod" id="codigo"/></h3>
                 <br>
             <br>
-            <h3 id="texto"> Dependecia: <SELECT NAME="dep" SIZE="1"> 
-                            <OPTION VALUE="1">1. Servicios G.</OPTION> 
-                            <OPTION VALUE="2">2. Laboratoristas</OPTION> 
-                </SELECT></h3> <br> <br>
+            <?php if(!empty($error_dep)) { echo $error_dep;} ?>
+            <h3 id="texto"> 
+                Dependecia: 
+                <SELECT NAME="dep" SIZE="1"> 
+                   <OPTION VALUE="0">Escoja una Dependencia</OPTION>
+                   <?php acciones::selectDependencia()?>
+  
+                </SELECT>
+            </h3> <br> <br>
             
-                    <input type="button" value="Agregar Empleado" onclick=" " /> 
+            <input type="submit" value="Agregar Empleado" /> 
         </form>
             </div>
             </div>
