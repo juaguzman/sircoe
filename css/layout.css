@@ -90,6 +90,27 @@ header .stuts span {
     font: 2px;
     color: red;
 }
+
+#escudo
+{
+    margin-left: 630px;
+    margin-top: 40px;
+    
+}
+
+.agreER
+{
+    border-radius: 20px 20px 0px 0px;
+   -moz-border-radius: 20px 20px 0px 0px;
+    -webkit-border-radius: 20px 20px 0px 0px;
+    border: 0px;
+    color: white;
+    background: #eb741a;
+    width: 50%;
+    margin-left: 250px;
+    height: 50px;
+}
+
 .btn
 {
     margin: 10px;

@@ -19,6 +19,7 @@ sec_session_start();
         <header>
             <h2><img id="titu" src="../../imagenes/titulo.png"></h2>
             <a href="www.umariana.edu.co" class="stuts">Sistema de Registro y Control de Emplados<span>UNIMAR</span></a>
+            <h2><a href="http://www.umariana.edu.co "><img id="escudo" src="../../imagenes/escudo2.png"></a></h2>
         </header>
         <?php if (login_check($mysqli) == true) : 
             include 'nav.php';
