@@ -28,15 +28,8 @@ sec_session_start();
             include 'nav.php';
         ?>
         <div class="container">
-<!--            <p>¡Bienvenido, <?php echo htmlentities($_SESSION['username']); ?>!</p>
-            <p>
-                Este es un ejemplo de página protegida.  Para acceder a esta página, los usuarios
-                deberán iniciar su sesión.  En algún momento, también verificaremos el rol 
-                del usuario para que las páginas puedan determinar el tipo de usuario 
-                autorizado para acceder a la página.
-            </p>
-            
-            <p>Regresar a la<a href="index.php">página de inicio de sesión.</a></p>-->
+
+             <h1>Listado de Horas de entrada y salida</h1>
         
         <div class="generatecss_dot_com_table">
                 
