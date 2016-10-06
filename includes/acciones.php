@@ -64,14 +64,14 @@ class acciones
             echo "<tr><td>$campo->cedula</td><td>$campo->nombres</td><td>$campo->apellidos</td><td>$campo->fecha</td>";
             $entrada = $campo->entrada;
             $entrada=$campo->entrada;
-            $entrmañ=  strtotime("7:06");
-            if($entrada>$entrmañ)
+            $entrmañ=strtotime("7:06");
+            if($entrada>=$entrmañ)
             {
-                echo "<td id='ok' >$campo->entrada</td>";
+                echo "<td id=to>$campo->entrada</td>";
             }
             else
             {
-              echo "<td id=to >$campo->entrada</td>";  
+              echo "<td>$campo->entrada</td>";  
             }
             echo "<td>$campo->salida</td></tr>";
         }
