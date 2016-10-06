@@ -55,19 +55,27 @@ sec_session_start();
             echo $error_msg;
         }
         ?>
-        
+        <div class="contenido">
         <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
-            Nombre de usuario: <input type='text' name='username' id='username' /><br>
-            Correo electrónico: <input type="text" name="email" id="email" /><br>
-            Contraseña: <input type="password" name="password" id="password"/><br>
-            Confirmar contraseña: <input type="password" name="confirmpwd" id="confirmpwd" /><br>
-            <select name="rol" id="rol">
+            <br>
+            <br>
+            <h3 id="texto">Nombre de usuario: <input type='text' name='username' id='username' /></h3>
+                <br>
+            <h3 id="texto">Correo electrónico: <input type="text" name="email" id="email" /></h3>
+                <br>
+            <h3 id="texto">Contraseña: <input type="password" name="password" id="password"/></h3>
+                <br>
+            <h3 id="texto">Confirmar contraseña: <input type="password" name="confirmpwd" id="confirmpwd" /></h3>
+                <br>
+            <h3 id="texto">Rol
+                <select name="rol" id="rol">
                 <option value="admin" selected >Administrador</option>
                 <option value="consul">Consultor</option>
-            </select>
+            </select></h3>
             <input type="button" value="Register" onclick="return regformhash(this.form,this.form.username,this.form.email,this.form.password,this.form.confirmpwd);" /> 
         </form>
         <p>Return to the <a href="index.php">login page</a>.</p>
+        </div>
         </div>
   <?php else : ?>
             <p>
