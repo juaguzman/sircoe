@@ -79,9 +79,18 @@ if(isset($_POST['apell'],$_POST['nom'],$_POST['ced'],$_POST['cod'],$_POST['dep']
               $estado="af";
               $insert_stmt->bind_param('ssssss',$cedu,$nom,$apell,$codi,$estado,$depe);
               
-               if (! $insert_stmt->execute())
+               if ($insert_stmt->execute())
             {
-                header('Location: ../../error.php?err=Registration failure: INSERT');
+                    $apell=NULL;
+                    $nom=NULL;
+                    $cedu=NULL;
+                    $codi=NULL;
+                    $estado=NULL;        
+                    echo "<div id=dialog-message title= Empleado Agregado > <p>Empleado agregado correctamente</p></div>";
+            }
+            else 
+            {
+                     header('Location: ../../error.php?err=Registration failure: INSERT');
             }
             
             }
