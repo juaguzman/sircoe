@@ -116,3 +116,36 @@ header .stuts span {
     margin: 10px;
     margin-bottom: 20px;
 }
+
+.fin
+{
+   padding:20px;
+   
+}
+
+.btn {
+  background: #eb741a;
+  background-image: -webkit-linear-gradient(top, #eb741a, #eb741a);
+  background-image: -moz-linear-gradient(top, #eb741a, #eb741a);
+  background-image: -ms-linear-gradient(top, #eb741a, #eb741a);
+  background-image: -o-linear-gradient(top, #eb741a, #eb741a);
+  background-image: linear-gradient(to bottom, #eb741a, #eb741a);
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 9px 16px 9px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
