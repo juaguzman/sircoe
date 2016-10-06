@@ -16,6 +16,23 @@ sec_session_start();
         <link href="../../css/menu.css" rel="stylesheet" type="text/css" />
         <link href="../../css/header.css" rel="stylesheet" type="text/css" />
         <link href="../../css/tabla.css" rel="stylesheet" type="text/css" />
+         <link rel="stylesheet" href="../../css/jquery-ui.css" />
+                 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="/resources/demos/external/jquery.bgiframe-2.1.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+        <script>
+            $(function() 
+              {
+                $( "#dialog-message" ).dialog({
+                  modal: true,
+                  buttons: {
+                    Ok: function() {
+                      $( this ).dialog( "close" );
+                    }
+                  }
+                });
+              });
+      </script>
     </head>
     <body>
         <header>
