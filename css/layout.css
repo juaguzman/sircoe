@@ -87,6 +87,11 @@ header .stuts span {
 
 .error
 {
-    font: 5px;
+    font: 2px;
     color: red;
+}
+.btn
+{
+    margin: 10px;
+    margin-bottom: 20px;
 }

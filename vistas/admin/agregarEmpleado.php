@@ -14,6 +14,23 @@ sec_session_start();
         <link href="../../css/layout.css" rel="stylesheet" type="text/css" />
         <link href="../../css/menu.css" rel="stylesheet" type="text/css" />
         <link href="../../css/header.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="../../css/jquery-ui.css" />
+                 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="/resources/demos/external/jquery.bgiframe-2.1.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+        <script>
+            $(function() 
+              {
+                $( "#dialog-message" ).dialog({
+                  modal: true,
+                  buttons: {
+                    Ok: function() {
+                      $( this ).dialog( "close" );
+                    }
+                  }
+                });
+              });
+      </script>
     </head>
     <body>
         <header>
@@ -41,16 +58,16 @@ sec_session_start();
                 <br>
                 <br>
         <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
-            <h3 id="texto">Apellidos: <input type='text' name='apell' id='apellidos' /></h3><br>
+            <h3 id="texto">Apellidos: <input type='text' name='apell' id='apellidos' value="<?php if (!empty($apell)) { echo $apell;} ?>" required /></h3><br>
             <br>
-            <h3 id="texto">Nombres: <input type='text' name='nom' id='nombres' /></h3><br>
+            <h3 id="texto">Nombres: <input type='text' name='nom' id='nombres' value="<?php if (!empty($nom)) { echo $nom;} ?>" required /></h3><br>
             <br>
             <?php if(!empty($error_ced)) { echo $error_ced;} ?>
-            <h3 id="texto">Cedula: <input type="number" name="ced" id="cedula" /></h3>
+            <h3 id="texto">Cedula: <input type="number" name="ced" id="cedula" value="<?php if (!empty($cedu)) { echo $cedu;} ?>" required /></h3>
                 <br>
                 <br>
                 <?php if(!empty($error_codi)) { echo $error_codi;} ?>
-            <h3 id="texto">Codigo: <input type="number" name="cod" id="codigo"/></h3>
+                <h3 id="texto">Codigo: <input type="number" name="cod" id="codigo" value="<?php if (!empty($codi)) { echo $codi;} ?>" required/> </h3>
                 <br>
             <br>
             <?php if(!empty($error_dep)) { echo $error_dep;} ?>
@@ -63,7 +80,7 @@ sec_session_start();
                 </SELECT>
             </h3> <br> <br>
             
-            <input type="submit" value="Agregar Empleado" /> 
+            <input type="submit" value="Agregar Empleado" class="btn" /> 
         </form>
             </div>
             </div>
