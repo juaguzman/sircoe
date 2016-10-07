@@ -60,6 +60,8 @@ sec_session_start();
         <div class="container">
             <!--<h1>Pagina de empleados listado de todos los emplados por dependencia osea los que puede ver el administrador o director de esa dependencia como por ejemplo servicios generales</h1>-->
             <h1>Listado de empleados de su dependencia</h1>
+            <br>
+            <h2>Horario de la Mañana</h2>
 <!--            <p>
                 Este es un ejemplo de página protegida.  Para acceder a esta página, los usuarios
                 deberán iniciar su sesión.  En algún momento, también verificaremos el rol 
@@ -74,6 +76,7 @@ sec_session_start();
                 <?php acciones::listarEmpleadosDep($id)
                 ?>
             </div>
+            
         </div>
         <?php else : include './acesodenegado.php';?>
             
