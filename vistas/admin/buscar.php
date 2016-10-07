@@ -1,53 +1,15 @@
-<?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+<?php 
 
-include_once 'psl-config.php';
-include_once 'db_connect.php';
+include '../../includes/db_connect.php';
+//Recogemos la cadena
+$busqueda=$_POST['cadena'];
 
-class acciones
-{
-    static function listarEmpleadosDep($id)
-    {
-        include 'db_connect.php';
-        $consulta = "SELECT empleados.*, dependencias.nombre as 'dependencia' FROM empleados, dependencias WHERE empleados.dependencias_id_depen = dependencias.id_depen and dependencias.id_depen = $id;";
-        $result   = $mysqli->query($consulta);
-        echo '<table>';
-         echo'<tr>';
-        echo '<td>Cedula</td>';
-        echo '<td>Codigo</td>';
-        echo '<td>Nombres</td>';
-        echo '<td>Apellidos</td>';
-        echo '<td>Dependencia</td>';
-        echo '<td>Estado</td>';
-        echo '<td colspan = "2">Opciones</td>';
-        echo '</tr>';
-        
-        while ($campo=mysqli_fetch_object($result)) 
-        {
-            if(strcmp($campo->estado, "af")==0)
-                    {
-                        $estado="Inactivo";
-                    }
-                    else
-                    {
-                       $estado = "Activo";
-                    }
-            echo "<tr><td>$campo->cedula</td><td>$campo->codigo</td><td>$campo->nombres</td><td>$campo->apellidos</td><td>$campo->dependencia</td><td>$estado</td><td><a href=modificarEmpleado.php?cedu=$campo->cedula><img src=../../imagenes/mod.png width=30px heigt=30px ></a></td><td><a href=../../includes/eliminarEmpleado.php?cedu=$campo->cedula><img src=../../imagenes/eliminar.png width=30px heigt=30px ></a></td></tr>";
-        }
-        echo '<table>';
-    }
-    
-    
-    static function reporteEmpleadosDependencia($id)
-    {
-       
-       include 'db_connect.php';
-        $consulta = "select empleados.cedula as 'cedula',empleados.nombres as 'nombres', empleados.apellidos as 'apellidos',  entradas.fecha as 'fecha', salidas.fecha as 'salfecha', entradas.horamnn as 'entradamnn', salidas.horamnn as 'salidamnn',entradas.horatrd as 'entradtrd', salidas.horatrd as 'salidatrd'from empleados, entradas, salidas WHERE empleados.cedula = entradas.empleados_cedula AND empleados.cedula = salidas.empleados_cedula and empleados.dependencias_id_depen = $id having salidas.fecha = entradas.fecha order by entradas.fecha desc, empleados.cedula asc;";
+//Aquí hacer la consulta para la busqueda con LIKE $busqueda
+//$query = sprintf("SELECT * FROM empleados WHERE nombres LIKE %s", 
+//        GetSQLValueString("%" . $busqueda . "%", "text")); //Función GetSQLValueString al fina del tema
+
+        $consulta = "select empleados.cedula as 'cedula',empleados.nombres as 'nombres', empleados.apellidos as 'apellidos',  entradas.fecha as 'fecha', salidas.fecha as 'salfecha', entradas.horamnn as 'entradamnn', salidas.horamnn as 'salidamnn',entradas.horatrd as 'entradtrd', salidas.horatrd as 'salidatrd'from empleados, entradas, salidas WHERE empleados.cedula = entradas.empleados_cedula AND empleados.cedula = salidas.empleados_cedula and empleados.dependencias_id_depen = 1 and ( empleados.nombres like '%".$busqueda."%' or empleados.apellidos LIKE '%".$busqueda."%' or empleados.cedula LIKE '%".$busqueda."%' or entradas.fecha LIKE '%".$busqueda."%' )  having salidas.fecha = entradas.fecha order by entradas.fecha desc, empleados.cedula asc;";
         $result   = $mysqli->query($consulta);
         echo '<table>';
          echo'<tr>';
@@ -164,18 +126,8 @@ class acciones
           echo "<tr>"; 
         }
         echo '<table>';
-    }
-    
-    static function selectDependencia()
-    {
-        include 'db_connect.php';
-         $consulta = "SELECT * FROM dependencias;";
-        $result   = $mysqli->query($consulta);
-        while ($campo=mysqli_fetch_object($result)) 
-        {
-            echo "<OPTION VALUE=$campo->id_depen> $campo->nombre</OPTION>";
-        }
-        
-        
-    }
-}
+
+//Esto se pega en la div #mostrar
+//echo 'Demo '.$busqueda; //Mostrar los resultados aquí
+
+?>
