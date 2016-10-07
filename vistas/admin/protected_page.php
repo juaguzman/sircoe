@@ -34,10 +34,8 @@ sec_session_start();
             
             <p>Regresar a la<a href="index.php">página de inicio de sesión.</a></p>
         </div>
-        <?php else : ?>
-            <p>
-                <span class="error">No está autorizado para acceder a esta página.</span> Please <a href="index.php">login</a>.
-            </p>
+        <?php else : include './acesodenegado.php';?>
+            
         <?php endif; ?>
             
         

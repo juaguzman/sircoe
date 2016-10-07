@@ -86,10 +86,8 @@ sec_session_start();
             </div>
             </div>
         
-        <?php else : ?>
-            <p>
-                <span class="error"> No está autorizado para acceder a esta página. </span> Por favor ingrese como administrador <a href="index.php">login</a>.
-            </p>
+        <?php else : include './acesodenegado.php'; ?>
+            
         <?php endif; ?>
             
         
