@@ -56,20 +56,18 @@ sec_session_start();
         
         }?>
         <div class="container">
-            
-            <p>
-            <h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </h1>            </p>
-            
+            <div class="prin">
+                <img src="../../imagenes/alvernia.PNG" width="960px" height="250px">
+            </div>
+            <div class="noticias">
+                <img src="../../imagenes/noticias.PNG" width="960px">
+                <img src="../../imagenes/noticias1.PNG" width="960px">
+                <img src="../../imagenes/noticias2.PNG" width="960px">
+            </div>
+                          
             <p>Regresar a la<a href="index.php">página de inicio de sesión.</a></p>
         </div>
-        <?php else : ?>
-            <p>
-                <span class="error">No está autorizado para acceder a esta página.</span> Please <a href="index.php">login</a>.
-            </p>
+            
         <?php endif; ?>
             
         
