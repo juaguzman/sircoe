@@ -14,6 +14,23 @@ sec_session_start();
         <link href="../../css/layout.css" rel="stylesheet" type="text/css" />
         <link href="../../css/menu.css" rel="stylesheet" type="text/css" />
         <link href="../../css/header.css" rel="stylesheet" type="text/css" />
+         <link rel="stylesheet" href="../../css/jquery-ui.css" />
+                 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="/resources/demos/external/jquery.bgiframe-2.1.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+        <script>
+            $(function() 
+              {
+                $( "#dialog-message" ).dialog({
+                  modal: true,
+                  buttons: {
+                    Ok: function() {
+                      $( this ).dialog( "close" );
+                    }
+                  }
+                });
+              });
+      </script>
     </head>
     <body>
         <header>
@@ -24,6 +41,20 @@ sec_session_start();
         <?php if (login_check($mysqli) == true) : 
             include 'nav.php';
         ?>
+         <?php if(isset($_REQUEST['msj'],$_REQUEST['opt']))
+                 {
+        $msj = $_REQUEST['msj'];
+        $opt=$_REQUEST['opt'];
+        if($opt==1)
+        {
+         echo "<div id=dialog-message title= Usuario&nbsp;Agregado > <p> El usuario $msj se creo correctamente </p></div>";   
+        }
+        elseif ($opt==2) 
+            {
+                 echo "<div id=dialog-message title= Empleado&nbsp;Modificado > <p> Empleado con cedula numero $msj se modifico correctamente </p></div>"; 
+            }
+        
+        }?>
         <div class="container">
             
             <p>

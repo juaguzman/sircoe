@@ -49,11 +49,11 @@ sec_session_start();
         $opt=$_REQUEST['opt'];
         if($opt==1)
         {
-         echo "<div id=dialog-message title= Empleado Eliminado > <p> Empleado con cedula numero $msj se elimino correctamente </p></div>";   
+         echo "<div id=dialog-message title= Empleado&nbsp;Eliminado > <p> Empleado con cedula numero $msj se elimino correctamente </p></div>";   
         }
         elseif ($opt==2) 
             {
-        
+                 echo "<div id=dialog-message title= Empleado&nbsp;Modificado > <p> Empleado con cedula numero $msj se modifico correctamente </p></div>"; 
             }
         
         }?>

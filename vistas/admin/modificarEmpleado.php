@@ -1,10 +1,26 @@
 <?php
 //include './includes/psl-config.php';
-include '../../includes/db_connect.php';
 include_once '../../includes/functions.php';
 include '../../includes/acciones.php';
-include '../../includes/agregarE.inc.php';
+include '../../includes/modificarEmpleado.inc.php';
 sec_session_start();
+
+if(isset($_GET['cedu']))
+{
+    $ced=$_REQUEST['cedu'];
+    
+                $prep_stmt = "SELECT * FROM empleados WHERE cedula = ? LIMIT 1";
+                          $stmt = $mysqli->prepare($prep_stmt);
+                           if ($stmt) 
+                                {
+                                $stmt->bind_param('s', $ced);
+                                $stmt->execute();
+                                $stmt->store_result(); 
+                                // Obtiene las variables del resultado.
+                                $stmt->bind_result($cedu,$nom,$apell,$codi,$est,$dep);
+                                $stmt->fetch();
+                                }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +46,7 @@ sec_session_start();
         
         <div class="container">
             <div class="agreET">
-                 <h1 id="re">Regístro de empleados</h1>
+                 <h1 id="re">Modificar empleado</h1>
         <?php
         if (!empty($error_msg)) 
        {
@@ -47,11 +63,11 @@ sec_session_start();
             <h3 id="texto">Nombres: <input type='text' name='nom' id='nombres' value="<?php if (!empty($nom)) { echo $nom;} ?>" required /></h3><br>
             <br>
             <?php if(!empty($error_ced)) { echo $error_ced;} ?>
-            <h3 id="texto">Cedula: <input type="number" name="ced" id="cedula" value="<?php if (!empty($cedu)) { echo $cedu;} ?>" required /></h3>
+            <h3 id="texto">Cedula: <input type="number" name="ced" id="cedula" value="<?php if (!empty($cedu)) { echo $cedu;} ?>" readonly /></h3>
                 <br>
                 <br>
                 <?php if(!empty($error_codi)) { echo $error_codi;} ?>
-                <h3 id="texto">Codigo: <input type="number" name="cod" id="codigo" value="<?php if (!empty($codi)) { echo $codi;} ?>" required/> </h3>
+                <h3 id="texto">Codigo: <input type="number" name="cod" id="codigo" value="<?php if (!empty($codi)) { echo $codi;} ?>" readonly /> </h3>
                 <br>
             <br>
             <?php if(!empty($error_dep)) { echo $error_dep;} ?>
@@ -64,7 +80,7 @@ sec_session_start();
                 </SELECT>
             </h3> <br> <br>
             
-            <input type="submit" value="Agregar Empleado" class="btn" /> 
+            <input type="submit" value="Modificar Empleado" class="btn" /> 
         </form>
             </div>
             </div>
