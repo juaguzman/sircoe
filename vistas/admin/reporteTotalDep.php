@@ -30,7 +30,10 @@ sec_session_start();
         <div class="container">
 
              <h1>Listado de Horas de entrada y salida</h1>
-          
+                <br>
+                <br>
+                <br>
+              <h1>Reporte Horario de la tarde</h1>
              <div class="mnn">
         <div class="generatecss_dot_com_table">                
                 <?php 
@@ -39,7 +42,9 @@ sec_session_start();
                 ?>
             </div>
           </div>
-             
+             <br>
+             <br>
+             <h1>Reporte Horario de la tarde</h1>
              <div class="mnn">
         <div class="generatecss_dot_com_table">                
                 <?php 

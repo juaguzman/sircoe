@@ -66,6 +66,9 @@ sec_session_start();
             <div class="generatecss_dot_com_table" id="mostrar1" >
             </div>
             </div>
+             <br>
+             <br>
+             <br>
             <h1> Busqueda Resporte Horario de la mañana </h1>
             <div class="mnn" >
             <div class="generatecss_dot_com_table" id="mostrar" >
