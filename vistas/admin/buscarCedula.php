@@ -18,16 +18,28 @@ sec_session_start();
         <link href="../../css/header.css" rel="stylesheet" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
-	function buscar_ajax(cadena){
+	function buscar_ajax(cadena,id)
+        {
 		$.ajax({
 		type: 'POST',
-		url: 'buscar.php',
-		data: 'cadena=' + cadena,
+		url: 'buscartr.php',
+		data: 'cadena=' + cadena+'&id='+id,
 		success: function(respuesta) {
 			//Copiamos el resultado en #mostrar
 			$('#mostrar').html(respuesta);
 	   }
 	});
+        
+        $.ajax({
+		type: 'POST',
+		url: 'buscarmn.php',
+		data: 'cadena=' + cadena+'&id='+id,
+		success: function(respuesta) {
+			//Copiamos el resultado en #mostrar
+			$('#mostrar1').html(respuesta);
+	   }
+	});
+        
 	}
 </script>
     </head>
@@ -43,13 +55,23 @@ sec_session_start();
             <h1>Busqueda de Reportes</h1>
             <div class="buscar">
                 <form>
-                    <input type="text" name="bucar" class="cedu" placeholder="Cedula,nombre,apellido,fecha" onkeyup="buscar_ajax(this.value);" />
+                     <?php  $id = $_SESSION['user_id']; ?>
+                    <input type="text" name="bucar" class="cedu" placeholder="Cedula,nombre,apellido,fecha" onkeyup="buscar_ajax(this.value,<?php echo "$id"; ?>);" />
                 </form>
             </div>
+            <br>
+            <br>
+            <h1>Busqueda Resporte Horario de la mañana</h1>
+            <div class="mnn" >
+            <div class="generatecss_dot_com_table" id="mostrar1" >
+            </div>
+            </div>
+            <h1> Busqueda Resporte Horario de la mañana </h1>
             <div class="mnn" >
             <div class="generatecss_dot_com_table" id="mostrar" >
             </div>
             </div>
+            
         </div>
         <?php else : ?>
             <p>
