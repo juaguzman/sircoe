@@ -46,7 +46,9 @@ sec_session_start();
                     <input type="text" name="bucar" class="cedu" placeholder="Cedula,nombre,apellido,fecha" onkeyup="buscar_ajax(this.value);" />
                 </form>
             </div>
+            <div class="mnn" >
             <div class="generatecss_dot_com_table" id="mostrar" >
+            </div>
             </div>
         </div>
         <?php else : ?>
