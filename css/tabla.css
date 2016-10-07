@@ -9,10 +9,6 @@ and open the template in the editor.
 */
 .generatecss_dot_com_table 
 {
-
- width: 100%;
- height: 400px;
- padding: 20px;
 margin: 44px;
 box-shadow: 5px 6px 6px 6px #ccccff;
 border: 0px solid #eb9040;
@@ -28,7 +24,6 @@ border-top-right-radius: 8px;
 -moz-border-radius-topleft: 8px;
 -webkit-border-top-left-radius: 8px;
 border-top-left-radius: 8px;
- overflow-y: scroll;
 }
 
 .generatecss_dot_com_table table 

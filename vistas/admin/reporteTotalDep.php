@@ -30,15 +30,24 @@ sec_session_start();
         <div class="container">
 
              <h1>Listado de Horas de entrada y salida</h1>
-             
-        <div class="generatecss_dot_com_table">
-                
+          
+             <div class="mnn">
+        <div class="generatecss_dot_com_table">                
                 <?php 
                 $id = $_SESSION['user_id'];
                     acciones::reporteManiana($id);
                 ?>
             </div>
-          
+          </div>
+             
+             <div class="mnn">
+        <div class="generatecss_dot_com_table">                
+                <?php 
+                $id = $_SESSION['user_id'];
+                    acciones::reporteTarde($id);
+                ?>
+            </div>
+          </div>
         <?php else : include './acesodenegado.php'; ?>
             
         <?php endif; ?>
