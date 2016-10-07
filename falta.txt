@@ -1,6 +1,6 @@
 
-- busqueda
-- error
+- busqueda----------------------- Listo
+- error ------------------------- Listo
 - modificar
 - arrgelar sistema
-- index
+- index ------------------------- Listo
