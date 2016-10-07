@@ -41,7 +41,8 @@ header .stuts span {
     font-weight:bold;
     margin-left:5px;
 }
-.container {
+.container 
+{
     
     margin: 30px auto;
     width: 957px;
