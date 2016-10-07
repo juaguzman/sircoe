@@ -1,0 +1,6 @@
+
+- busqueda
+- error
+- modificar
+- arrgelar sistema
+- index
